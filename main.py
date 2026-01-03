@@ -1,10 +1,10 @@
 import hashlib
 import random
-import tomllib
 from pathlib import Path
 
 import requests
 import streamlit as st
+import tomllib
 from gtts import gTTS
 
 # Dropbox URL (dl=1 for direct download)
@@ -161,6 +161,11 @@ def main():
             st.session_state.current_index = 0
             st.session_state.show_answer = False
             st.session_state.quiz_mode = None
+            st.rerun()
+
+        if st.button("単語帳を再読み込み", use_container_width=True):
+            st.session_state.clear()
+            fetch_word_list.clear()
             st.rerun()
 
 
