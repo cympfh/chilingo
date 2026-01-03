@@ -1,11 +1,18 @@
 import hashlib
 import random
+import tomllib
 from pathlib import Path
 
 import requests
 import streamlit as st
-import tomllib
 from gtts import gTTS
+
+st.set_page_config(
+    page_title="ChiLingo - 中文単語帳",
+    page_icon="🐼",
+    layout="centered",
+    initial_sidebar_state="collapsed",
+)
 
 # Dropbox URL (dl=1 for direct download)
 DROPBOX_URL = "https://www.dropbox.com/scl/fi/b1bxhq60uomcnt4s9e0u5/chilingo.toml?rlkey=8nc6em3grkv34p1hlgzuzwuuj&st=6bb6bvf3&dl=1"
@@ -88,7 +95,7 @@ def show_answer():
 
 
 def main():
-    st.title("ChiLingo - 中国語単語帳")
+    st.title("ChiLingo")
 
     # Initialize session state
     initialize_session_state()
